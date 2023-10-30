@@ -1,0 +1,200 @@
+ScreenManager:
+    SignupScreen:
+    LoginScreen:
+    HomeScreen:
+
+<SignupScreen>:
+    name: 'signup'
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 25
+        spacing: 15
+
+        canvas:
+            Rectangle:
+                source: "back-pic.jpeg"
+                size: self.size
+                pos: self.pos
+
+        AsyncImage:
+            source: "poster.png"
+            size: self.size
+            pos: self.pos
+
+        Label:
+            id: msg
+            text: ""
+            color: 'white'
+            font_size: 18
+            size_hint_x: None
+            size_hint_y: None
+            width: 200
+            height: 40
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        TextInput:
+            id: em
+            hint_text: 'Enter Email'
+            background_normal: 'input.png'
+            background_active: 'input.png'
+            size_hint_y: None
+            height: 70
+            padding: 25
+            font_size: 18
+            foreground_color: 1, 1, 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        TextInput:
+            id: ps
+            hint_text: 'Enter Password'
+            password: True
+            background_normal: 'input.png'
+            background_active: 'input.png'
+            size_hint_y: None
+            height: 70
+            padding: 25
+            font_size: 18
+            foreground_color: 1, 1, 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Button:
+            id: signup
+            text: 'Sign Up'
+            padding: 20
+            color: 'white'
+            background_color: 'red'
+            size_hint_x: None
+            size_hint_y: None
+            width: 200
+            height:40
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            on_press: app.signup(em, ps, msg)
+
+        Label:
+            text: 'Already have an Account?...'
+            font_size: 16
+            color: 'white'
+            size_hint_x: None
+            size_hint_y: None
+            width: 200
+            height: 40
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Button:
+            id: login
+            text: "Login"
+            padding: 20
+            color: "white"
+            background_color: 'blue'
+            size_hint_x: None
+            size_hint_y: None
+            width: 200
+            height: 40
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_press: root.manager.current = 'login'
+
+
+<LoginScreen>:
+    name: 'login'
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 25
+        spacing: 15
+
+        canvas:
+            Rectangle:
+                source: "back-pic.jpeg"
+                size: self.size
+                pos: self.pos
+
+        AsyncImage:
+            source: 'poster.png'
+
+        Label:
+            id: msg
+            text: ""
+            color: 'white'
+            font_size: 16
+            size_hint_x: None
+            size_hint_y: None
+            width: 200
+            height: 40
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        TextInput:
+            id: em
+            hint_text: 'Enter Email'
+            background_color: 'white'
+            background_normal: 'input.png'
+            background_active: 'input.png'
+            size_hint_y: None
+            height: 70
+            padding: 25
+            font_size: 16
+            foreground_color: 1, 1, 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        TextInput:
+            id: ps
+            hint_text: 'Enter Password'
+            password: True
+            background_color: 'white'
+            background_normal: 'input.png'
+            background_active: 'input.png'
+            size_hint_y: None
+            height: 70
+            padding: 25
+            font_size: 16
+            foreground_color: 1, 1, 1, 1
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Button:
+            id: login
+            text: "Login"
+            padding: 20
+            color: "white"
+            background_color: 'blue'
+            size_hint_x: None
+            size_hint_y: None
+            width: 200
+            height: 40
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_press: app.login(em, ps, msg)
+
+        Label:
+            text: 'Don\'t have an account?...'
+            font_size: 16
+            color: 'white'
+            size_hint_x: None
+            size_hint_y: None
+            width: 200
+            height: 40
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Button:
+            id: signup
+            text: "Sign Up"
+            padding: 20
+            color: "white"
+            background_color: 'red'
+            size_hint_x: None
+            size_hint_y: None
+            width: 200
+            height: 40
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_press: root.manager.current = 'signup'
+
+<HomeScreen>:
+    name: 'home'
+
+    Label:
+        text: 'Now you are visiting Home Page. So there is no content to read. Thanks for visiting.'
+        font_size: 16
+        color: 'white'
+        pos_hint_x: None
+        pos_hint_y: None
+        width: 200
+        height: 40
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
